@@ -8,5 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        WordsCounter wordsCounter = new WordsCounter();
+        wordsCounter.textFileReader();
+
     }
 }

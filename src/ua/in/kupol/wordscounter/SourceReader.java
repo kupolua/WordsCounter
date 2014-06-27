@@ -1,5 +1,7 @@
 package ua.in.kupol.wordscounter;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -9,6 +11,7 @@ import java.nio.file.Paths;
  * Created by kpl on 27.06.2014.
  */
 public class SourceReader {
+    static Logger logger = Logger.getLogger(WordsCounter.class);
 //    public SourceReader(){
 //
 //    }
@@ -20,15 +23,17 @@ public class SourceReader {
 
         try {
             byte[] textSources = Files.readAllBytes(Paths.get(wordsCounterGetProperties.getPathToTextFile()));
-            return new String(textSources, "utf-8");
+            return new String(textSources);
         } catch (IOException ex) {
-            ex.printStackTrace();
+//            ex.printStackTrace();
+            logger.error("Sorry, unable to find " + Main.PROPERTIES_FILE, ex);
         } finally{
             if(input!=null){
                 try {
                     input.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
+                    logger.error("Sorry, can't close file" + Main.PROPERTIES_FILE, e);
                 }
             }
         }

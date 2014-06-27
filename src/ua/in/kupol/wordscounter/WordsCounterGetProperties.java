@@ -36,4 +36,10 @@ public class WordsCounterGetProperties {
         return wordsCounterProperties.getProperty("pathToTextFile")
                + wordsCounterProperties.getProperty("textFileName");
     }
+    public String getReGex () {
+        return wordsCounterProperties.getProperty("regexMask");
+    }
+    public String getReGexReplacement () {
+        return wordsCounterProperties.getProperty("regexReplacement");
+    }
 }
