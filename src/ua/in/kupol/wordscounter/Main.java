@@ -27,7 +27,7 @@ public class Main {
             }
         });
         file2.setName("file2");
-//        file2.start();
+        file2.start();
 
         Thread file3 = new Thread(new Runnable() {
             @Override
@@ -38,7 +38,7 @@ public class Main {
             }
         });
         file3.setName("file3");
-//        file3.start();
+        file3.start();
 
 
 
