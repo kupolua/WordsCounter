@@ -32,9 +32,9 @@ public class WordsCounterGetProperties {
             }
         }
     }
-    public String getPathToTextFile() {
+    public String getPathToTextFile(String numberOfFileName) {
         return wordsCounterProperties.getProperty("pathToTextFile")
-               + wordsCounterProperties.getProperty("textFileName");
+               + wordsCounterProperties.getProperty(numberOfFileName + "textFileName");
     }
     public String getReGex () {
         return wordsCounterProperties.getProperty("regexMask");

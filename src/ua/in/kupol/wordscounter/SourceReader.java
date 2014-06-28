@@ -16,13 +16,13 @@ public class SourceReader {
 //
 //    }
 
-    public String readFromFile(){
+    public String readFromFile(String numberOfFileName){
         WordsCounterGetProperties wordsCounterGetProperties = new WordsCounterGetProperties();
         InputStream input = null;
         String noTextSourceFile = "No Source File";
 
         try {
-            byte[] textSources = Files.readAllBytes(Paths.get(wordsCounterGetProperties.getPathToTextFile()));
+            byte[] textSources = Files.readAllBytes(Paths.get(wordsCounterGetProperties.getPathToTextFile(numberOfFileName)));
             return new String(textSources);
         } catch (IOException ex) {
 //            ex.printStackTrace();

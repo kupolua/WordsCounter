@@ -13,13 +13,13 @@ public class WordsCounter {
     static Logger logger = Logger.getLogger(WordsCounter.class);
     WordsCounterGetProperties wordsCounterGetProperties = new WordsCounterGetProperties();
 
-    public void textFileReader(){
+    public void textFileReader(String numberOfFileName){
 
         logger.info("Start WordsCounter programm");
 
         SourceReader sourceReader = new SourceReader();
 //        String textSource = sourceReader.readFromFile().replaceAll(wordsCounterGetProperties.getReGex(), wordsCounterGetProperties.getReGexReplacement());
-        String textSource = sourceReader.readFromFile().replaceAll("[^aA-zZ ’]", " ");
+        String textSource = sourceReader.readFromFile(numberOfFileName).replaceAll("[^aA-zZ ’]", " ");
 
         logger.info("Text after regex, before split(space) :  " + textSource);
 
@@ -32,7 +32,7 @@ public class WordsCounter {
             } else {
                 countWord = words.get(word.toLowerCase());
                 words.put(word.toLowerCase(), countWord + 1);
-            }
+             }
         }
         Map<String, Integer> wordsSortByFound = sortByComparator(words);
         logger.info("List words: " + wordsSortByFound);
